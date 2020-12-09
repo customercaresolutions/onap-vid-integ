@@ -40,6 +40,25 @@ public class ToscaMetadata {
 	/** The version. */
 	private String version;
 	
+	private String serviceType;
+	
+	private String serviceRole;
+	
+	public String getServiceType() {
+		return serviceType;
+	}
+
+	public void setServiceType(String serviceType) {
+		this.serviceType = serviceType;
+	}
+
+	public String getServiceRole() {
+		return serviceRole;
+	}
+
+	public void setServiceRole(String serviceRole) {
+		this.serviceRole = serviceRole;
+	}
 	/** The name. */
 	private String name;
 	
