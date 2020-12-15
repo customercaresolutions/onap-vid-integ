@@ -89,9 +89,9 @@ appDS2.constant("VIDCONFIGURATION", (function() {
 	/*
 	 * Number of msecs that VID will wait between MSO polls.
 	 */
-	var MSO_POLLING_INTERVAL_MSECS = 200;
+	var MSO_POLLING_INTERVAL_MSECS = 400;
 	
-	var SERVER_RESPONSE_TIMEOUT_MSECS = 300000;
+	var SERVER_RESPONSE_TIMEOUT_MSECS = 900000;
 
 	var SCHEDULER_POLLING_INTERVAL_MSECS = 10000;
 	

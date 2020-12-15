@@ -96,9 +96,9 @@ public class MsoRestClientNew implements MsoInterface {
         String service = null;
         String inputsUrl = null;
         String output = null;
-        Boolean generate_workflow = null;
-        Boolean execute_workflow = null;
-        Boolean execute_policy= null;
+        Boolean generate_workflow = false;
+        Boolean execute_workflow = false;
+        Boolean execute_policy= false;
 		try {
 			JSONObject jsonObject = getCCIConfigJsonObject(methodName);
  
@@ -144,7 +144,7 @@ public class MsoRestClientNew implements MsoInterface {
         logger.debug(EELFLoggerDelegate.debugLogger, methodName + START);
         String path = baseUrl + endpoint;
         
-        Boolean list_steps_only = null;
+        Boolean list_steps_only = false;
 		try {
 			JSONObject jsonObject = getCCIConfigJsonObject(methodName);
  
