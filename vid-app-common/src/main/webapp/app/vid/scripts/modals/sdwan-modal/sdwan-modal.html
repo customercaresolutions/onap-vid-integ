@@ -1,0 +1,234 @@
+<!--
+  ============LICENSE_START=======================================================
+  VID
+  ================================================================================
+  Copyright (C) 2017 - 2019 AT&T Intellectual Property. All rights reserved.
+  ================================================================================
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  ============LICENSE_END=========================================================
+  -->
+
+<link rel="stylesheet" type="text/css" href="app/vid/styles/modals.css">
+<link rel="stylesheet" type="text/css" href="app/vid/scripts/modals/sdwan-modal/sdwan-modal.css" />
+<div class="modal-header" ng-class="vm.mode" ng-show="isDialogVisible">
+    <span class="modal-title"  id="alert-modal-header">{{vm.Header}}</span>
+	<h3>SDWAN input parameters</h3>
+    <span id="cancel" ng-click="vm.close()" class="pull-right modal-close" aria-hidden="true">&times;</span>
+</div>
+<div class="modal-body">
+<table>
+
+   <tr>
+    <td>service</td>
+    <td>
+	    <input type="text" value="sdwan/sdwan_service.yaml" ng-model="service">
+	</td>
+  </tr>
+
+  <tr class="blank_row">
+    <td colspan="3"></td>
+  </tr> 
+  
+  <tr>
+    <td>cloud_type</td>
+    <td>  
+		<select name="cloud_type" id="cloud_type" ng-model="cloud_type">
+		  <option value="aws">AWS</option>
+		  <option value="openstack">Openstack</option>
+		</select>
+  </td>
+  </tr>
+  
+  <tr>
+    <td>region_name</td>
+	    <td> 
+			<select name="region_name" id="region_name" ng-model="region_name">
+		  <option value="us-west-1">us-west-1</option>
+		  <option value="us-east-1">us-east-1</option>
+		</select>
+		  </td>
+  </tr>
+ 
+  <tr>
+    <td>availability_zone</td>
+    <td>
+	   <input type="text" value="us-west-1c" ng-model="availability_zone">
+	</td>
+  </tr>
+  
+  <tr>
+    <td>access_key_id</td>
+    <td>
+	   <input type="text" value="AKIAX5SZYLZQL53OG6EI" ng-model="access_key_id"> 
+	</td>
+  </tr>
+  
+  <tr>
+    <td>secret_access_key</td>
+    <td>
+	    <input type="text" value="+XYgXZ646bQs0WIg+47QtQCqhOxTbhS5f2Q7UwtV" ng-model="secret_access_key">
+	</td>
+  </tr>
+  
+  <tr>
+    <td>instance_type</td>
+    <td>
+	    <input type="text" value="c5d.xlarge" ng-model="instance_type">
+	</td>
+  </tr>
+  
+  <tr>
+    <td>image_id</td>
+    <td>
+	    <input type="text" value="ami-0d705db840ec5f0c5" ng-model="image_id">
+	</td>
+  </tr>
+
+   <tr>
+    <td>identity_api_version</td>
+    <td>
+	    <input type="text" value="3" ng-model="identity_api_version">
+	</td>
+  </tr>
+
+  <tr class="blank_row">
+    <td colspan="3"></td>
+  </tr> 
+  
+  <tr>
+    <td>---SdwanSite1---</td>
+    <td>
+	
+	</td>
+  </tr> 
+
+
+  <tr>
+    <td>site_name</td>
+    <td>
+	    <input type="text" value="SDWAN_Site_A" ng-model="site1_site_name">
+	</td>
+  </tr> 
+  
+   <tr>
+    <td>network_name</td>
+    <td>
+	    <input type="text" value="siteA_network" ng-model="site1_network_name">
+	</td>
+  </tr> 
+
+   <tr>
+    <td>cidr</td>
+    <td>
+	    <input type="text" value="172.19.0.0/16" ng-model="site1_cidr">
+	</td>
+  </tr> 
+  
+   <tr>
+    <td>wan_subnet_name</td>
+    <td>
+	    <input type="text" value="siteA_wan_subnet" ng-model="site1_wan_subnet_name">
+	</td>
+  </tr>
+  
+   <tr>
+    <td>wan_cidr</td>
+    <td>
+	    <input type="text" value="172.19.254.0/24" ng-model="site1_wan_cidr">
+	</td>
+  </tr>
+  
+   <tr>
+    <td>lan_subnet_name</td>
+    <td>
+	    <input type="text" value="siteA_lan_subnet" ng-model="site1_lan_subnet_name">
+	</td>
+  </tr>
+
+   <tr>
+    <td>lan_cidr</td>
+    <td>
+	    <input type="text" value="172.19.1.0/24" ng-model="site1_lan_cidr">
+	</td>
+  </tr>
+  
+    <tr class="blank_row">
+    <td colspan="3"></td>
+  </tr> 
+  
+   <tr>
+    <td>---SdwanSite2---</td>
+    <td>
+	
+	</td>
+  </tr> 
+
+
+  <tr>
+    <td>site_name</td>
+    <td>
+	    <input type="text" value="SDWAN_Site_B" ng-model="site2_site_name">
+	</td>
+  </tr> 
+  
+   <tr>
+    <td>network_name</td>
+    <td>
+	    <input type="text" value="siteB_network" ng-model="site2_network_name">
+	</td>
+  </tr> 
+
+   <tr>
+    <td>cidr</td>
+    <td>
+	    <input type="text" value="172.14.0.0/16" ng-model="site2_cidr">
+	</td>
+  </tr> 
+  
+   <tr>
+    <td>wan_subnet_name</td>
+    <td>
+	    <input type="text" value="siteB_wan_subnet" ng-model="site2_wan_subnet_name">
+	</td>
+  </tr>
+  
+   <tr>
+    <td>wan_cidr</td>
+    <td>
+	    <input type="text" value="172.14.254.0/24" ng-model="site2_wan_cidr">
+	</td>
+  </tr>
+  
+   <tr>
+    <td>lan_subnet_name</td>
+    <td>
+	    <input type="text" value="siteB_lan_subnet" ng-model="site2_lan_subnet_name">
+	</td>
+  </tr>
+
+   <tr>
+    <td>lan_cidr</td>
+    <td>
+	    <input type="text" value="172.14.1.0/24" ng-model="site2_lan_cidr">
+	</td>
+  </tr>
+  
+</table>
+</div>
+
+<div class="modal-footer">
+    <div class="pull-right">
+        <button data-tests-id="ok" id="ok-button" name="ok" class="btn"
+                ng-click="vm.ok()">OK</button>
+    </div>
+</div>

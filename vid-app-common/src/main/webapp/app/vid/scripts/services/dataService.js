@@ -211,6 +211,18 @@ var DataService = function($log, DataService) {
 		setALaCarte : function(aval) {
 			_this.aLaCarte = aval;
 		},
+		setInputParams : function(params) {
+			_this.inputParams = params;
+		},
+		getInputParams : function() {
+			return _this.inputParams;
+		},
+		setToscaService : function(service) {
+			_this._toscaService = service;
+		},
+		getToscaService : function() {
+			return _this._toscaService;
+		},
 		getALaCarte : function() {
 			// if not set return true
 			if (_this.aLaCarte === undefined) {

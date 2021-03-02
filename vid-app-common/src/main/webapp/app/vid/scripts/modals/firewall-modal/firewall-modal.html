@@ -1,0 +1,151 @@
+<!--
+  ============LICENSE_START=======================================================
+  VID
+  ================================================================================
+  Copyright (C) 2017 - 2019 AT&T Intellectual Property. All rights reserved.
+  ================================================================================
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+       http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  ============LICENSE_END=========================================================
+  -->
+
+<link rel="stylesheet" type="text/css" href="app/vid/styles/modals.css">
+<link rel="stylesheet" type="text/css" href="app/vid/scripts/modals/firewall-modal/firewall-modal.css" />
+<div class="modal-header" ng-class="vm.mode" ng-show="isDialogVisible">
+    <span class="modal-title"  id="alert-modal-header">{{vm.Header}}</span>
+	<h3>Firewall input parameters</h3>
+    <span id="cancel" ng-click="vm.close()" class="pull-right modal-close" aria-hidden="true">&times;</span>
+</div>
+<div class="modal-body">
+<table>
+
+   <tr>
+    <td>service</td>
+    <td>
+	    <input type="text" value="firewall/firewall_service.yaml" ng-model="service">
+	</td>
+  </tr>
+
+  <tr class="blank_row">
+    <td colspan="3"></td>
+  </tr> 
+  
+  <tr>
+    <td>cloud_type</td>
+    <td>  
+		<select name="cloud_type" id="cloud_type" ng-model="cloud_type">
+		  <option value="aws">AWS</option>
+		  <option value="openstack">Openstack</option>
+		</select>
+  </td>
+  </tr>
+  
+  <tr>
+    <td>region_name</td>
+	    <td> 
+			<select name="region_name" id="region_name" ng-model="region_name">
+		  <option value="us-east-1">us-west-1</option>
+		  <option value="us-west-1">us-east-1</option>
+		</select>
+		  </td>
+  </tr>
+ 
+  <tr>
+    <td>access_key_id</td>
+    <td>
+	   <input type="text" value="AKIAX5SZYLZQL53OG6EI" ng-model="access_key_id"> 
+	</td>
+  </tr>
+  
+  <tr>
+    <td>secret_access_key</td>
+    <td>
+	    <input type="text" value="+XYgXZ646bQs0WIg+47QtQCqhOxTbhS5f2Q7UwtV" ng-model="secret_access_key">
+	</td>
+  </tr>
+  
+    <tr>
+    <td>selected_flavour</td>
+    <td>
+	    <input type="text" value="simple" ng-model="selected_flavour">
+	</td>
+  </tr>
+  
+    <tr>
+    <td>image_id</td>
+    <td>
+	    <input type="text" value="ami-0a0ddd875a1ea2c7f" ng-model="image_id">
+	</td>
+  </tr>
+  
+    <tr>
+    <td>instance_type</td>
+    <td>
+	    <input type="text" value="t2.large" ng-model="instance_type">
+	</td>
+  </tr>
+  
+    <tr>
+    <td>availability_zone</td>
+    <td>
+	   <input type="text" value="us-west-1c" ng-model="availability_zone">
+	</td>
+  </tr>
+  
+  <tr>
+    <td>lower_threshold</td>
+    <td>
+	    <input type="text" value="10" ng-model="lower_threshold">
+	</td>
+  </tr>
+  
+  <tr>
+    <td>upper_threshold</td>
+    <td>
+	    <input type="text" value="80" ng-model="upper_threshold">
+	</td>
+  </tr>
+  
+  <tr>
+    <td>packet_rate</td>
+    <td>
+	    <input type="text" value="c5d.xlarge" ng-model="20">
+	</td>
+  </tr>
+  
+  <tr>
+    <td>num_streams</td>
+    <td>
+	    <input type="text" value="ami-0d705db840ec5f0c5" ng-model="5">
+	</td>
+  </tr>
+
+   <tr>
+    <td>identity_api_version</td>
+    <td>
+	    <input type="text" value="3" ng-model="identity_api_version">
+	</td>
+  </tr>
+
+  <tr class="blank_row">
+    <td colspan="3"></td>
+  </tr> 
+  
+</table>
+</div>
+
+<div class="modal-footer">
+    <div class="pull-right">
+        <button data-tests-id="ok" id="ok-button" name="ok" class="btn"
+                ng-click="vm.ok()">OK</button>
+    </div>
+</div>

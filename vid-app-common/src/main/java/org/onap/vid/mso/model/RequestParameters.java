@@ -40,6 +40,8 @@ public class RequestParameters {
 
     @JsonProperty("subscriptionServiceType")
     private String subscriptionServiceType;
+    @JsonProperty("service")
+    private String service;
     @JsonProperty("testApi")
     private String testApi;
     @JsonProperty("userParams")
@@ -65,6 +67,26 @@ public class RequestParameters {
     @JsonProperty("subscriptionServiceType")
     public void setSubscriptionServiceType(String subscriptionServiceType) {
         this.subscriptionServiceType = subscriptionServiceType;
+    }
+    
+    /**
+     * 
+     * @return
+     *     The service
+     */
+    @JsonProperty("service")
+    public String getService() {
+        return service;
+    }
+    
+    /**
+     * 
+     * @param service
+     *     The service
+     */
+    @JsonProperty("service")
+    public void setService(String service) {
+        this.service = service;
     }
 
     /**

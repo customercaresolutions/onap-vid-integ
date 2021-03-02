@@ -41,6 +41,8 @@ export class DataService {
   private static _treeHandle;
   private static _serviceInstanceToCustomer;
   private static _aLaCarte: boolean;
+  private static _inputParams;
+  private static _toscaService;
   private static _macro: boolean;
   private static _resources;
   private static _syspropProvStatusList;
@@ -376,6 +378,22 @@ export class DataService {
 
   static set aLaCarte(value: boolean) {
     this._aLaCarte = value;
+  }
+
+  static set inputParams(value) {
+    this._inputParams = value;
+  }
+
+  static get inputParams() {
+    return this._inputParams;
+  }
+
+  static set toscaService(value) {
+    this._toscaService = value;
+  }
+
+  static get toscaService() {
+    return this._toscaService;
   }
 
   static get macro() {

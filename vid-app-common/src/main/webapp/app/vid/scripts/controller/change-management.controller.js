@@ -177,6 +177,51 @@
                 console.log("This is the result of the alert change management modal.", result);
             });
         };
+
+        vm.openBasicSdwanModal = function(jobInfo) {
+            vm.closeCurrentModalIfOpen();
+            var modalInstance = $uibModal.open({
+                templateUrl: 'app/vid/scripts/modals/sdwan-modal/sdwan-modal.html',
+                controller: 'sdwanModalController',
+                controllerAs: 'vm',
+                backdrop: false,
+                animation: true,
+                appendTo: angular.element(".jobs-table").eq(0),
+                resolve: {
+                    jobInfo: function () {
+                        return jobInfo;
+                    }
+                }
+            });
+            vm.currModal = modalInstance;
+
+            modalInstance.result.then(function (result) {
+                console.log("This is the result of the sdwan change management modal.", result);
+            });
+        };
+		
+		  vm.openBasicFirewallModal = function(jobInfo) {
+            vm.closeCurrentModalIfOpen();
+            var modalInstance = $uibModal.open({
+                templateUrl: 'app/vid/scripts/modals/firewall-modal/firewall-modal.html',
+                controller: 'firewallModalController',
+                controllerAs: 'vm',
+                backdrop: false,
+                animation: true,
+                appendTo: angular.element(".jobs-table").eq(0),
+                resolve: {
+                    jobInfo: function () {
+                        return jobInfo;
+                    }
+                }
+            });
+            vm.currModal = modalInstance;
+
+            modalInstance.result.then(function (result) {
+                console.log("This is the result of the firewall change management modal.", result);
+            });
+        };
+
         vm.openPendingModal = function($event, changeManagement) {
 
             vm.closeCurrentModalIfOpen();

@@ -43,6 +43,11 @@
 <script src="app/vid/scripts/modals/vf-module-homing-data-action/vf-module-homing-data-action.controller.js"></script>
 <script src="app/vid/scripts/modals/new-test-environment/new-test-environment.controller.js"></script>
 <script src="app/vid/scripts/modals/alert-modal/alert-modal.controller.js"></script>
+<script src="app/vid/scripts/modals/sdwan-modal/sdwan-modal.controller.js"></script>
+<script src="app/vid/scripts/modals/firewall-modal/firewall-modal.controller.js"></script>
+<script src="app/vid/scripts/modals/ric-modal/ric-modal.controller.js"></script>
+<script src="app/vid/scripts/modals/nonrtric-modal/nonrtric-modal.controller.js"></script>
+<script src="app/vid/scripts/modals/unknown-modal/unknown-modal.controller.js"></script>
 <script src="app/vid/scripts/modals/report-modal/report-modal.controller.js"></script>
 <script src="app/vid/scripts/modals/report-modal/report-modal-request.controller.js"></script>
 <script src="app/vid/scripts/controller/aaiSubscriberController.js"></script>

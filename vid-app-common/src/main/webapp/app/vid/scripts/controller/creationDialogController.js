@@ -161,6 +161,175 @@ var creationDialogController = function (COMPONENT, FIELD, PARAMETER, $scope, $h
     };
 
     $scope.userParameterChanged = function (id) {
+        console.log("id =" +id);
+        if ( id === FIELD.ID.SERVICE_TYPE ) {
+            var list = $scope.userProvidedControl.getList(id);
+            if (list[0].selectedIndex >= 0) {
+                if (list[0].value == "vSDWAN") {
+                    console.log("In SDWAN controller window");
+                        let errorMsg;
+						
+                        if($scope.error !== undefined && $scope.error != null) {
+                            errorMsg = $scope.error;
+                        } else {
+                            errorMsg = "";
+                        }
+
+                        const modalWindow = $uibModal.open({
+                            templateUrl: 'app/vid/scripts/modals/sdwan-modal/sdwan-modal.html',
+                            controller: 'sdwanModalController',
+                            controllerAs: 'vm',
+                            resolve: {
+                                errorMsg: function () {
+                                    return errorMsg;
+                                }
+                            }
+                        });
+						
+                        console.log("modalWindow = ",modalWindow);
+                        $scope.isDialogVisible = false;
+                        $scope.popup.isVisible = false;
+						
+                        modalWindow.result.then(function ({result, service}) {
+						  console.log("result = ",result);
+						  $scope.isDialogVisible = true;
+                          $scope.popup.isVisible = true;
+
+                          DataService.setInputParams(result);
+                          DataService.setToscaService(service);
+    					});
+                } else if (list[0].value == "vFirewall") {
+                    console.log("In firewall controller window");
+                        let errorMsg;
+						
+                        if($scope.error !== undefined && $scope.error != null) {
+                            errorMsg = $scope.error;
+                        } else {
+                            errorMsg = "";
+                        }
+
+                        const modalWindow = $uibModal.open({
+                            templateUrl: 'app/vid/scripts/modals/firewall-modal/firewall-modal.html',
+                            controller: 'firewallModalController',
+                            controllerAs: 'vm',
+                            resolve: {
+                                errorMsg: function () {
+                                    return errorMsg;
+                                }
+                            }
+                        });
+						
+                        console.log("modalWindow = ",modalWindow);
+                        $scope.isDialogVisible = false;
+                        $scope.popup.isVisible = false;
+						
+                        modalWindow.result.then(function ({result, service}) {
+						  console.log("result = ",result);
+						  $scope.isDialogVisible = true;
+                          $scope.popup.isVisible = true;
+
+                          DataService.setInputParams(result);
+                          DataService.setToscaService(service);
+    					});
+                } else if (list[0].value == "vRIC") {
+                    console.log("In vRIC controller window");
+                        let errorMsg;
+						
+                        if($scope.error !== undefined && $scope.error != null) {
+                            errorMsg = $scope.error;
+                        } else {
+                            errorMsg = "";
+                        }
+
+                        const modalWindow = $uibModal.open({
+                            templateUrl: 'app/vid/scripts/modals/ric-modal/ric-modal.html',
+                            controller: 'ricModalController',
+                            controllerAs: 'vm',
+                            resolve: {
+                                errorMsg: function () {
+                                    return errorMsg;
+                                }
+                            }
+                        });
+						
+                        console.log("modalWindow = ",modalWindow);
+                        $scope.isDialogVisible = false;
+                        $scope.popup.isVisible = false;
+						
+                        modalWindow.result.then(function ({result, service}) {
+						  console.log("result = ",result);
+						  $scope.isDialogVisible = true;
+                          $scope.popup.isVisible = true;
+
+                          DataService.setInputParams(result);
+                          DataService.setToscaService(service);
+    					});
+                } else if (list[0].value == "vNonrtric") {
+                    console.log("In vNonrtric controller window");
+                        let errorMsg;
+						
+                        if($scope.error !== undefined && $scope.error != null) {
+                            errorMsg = $scope.error;
+                        } else {
+                            errorMsg = "";
+                        }
+
+                        const modalWindow = $uibModal.open({
+                            templateUrl: 'app/vid/scripts/modals/nonrtric-modal/nonrtric-modal.html',
+                            controller: 'nonrtricModalController',
+                            controllerAs: 'vm',
+                            resolve: {
+                                errorMsg: function () {
+                                    return errorMsg;
+                                }
+                            }
+                        });
+						
+                        console.log("modalWindow = ",modalWindow);
+                        $scope.isDialogVisible = false;
+                        $scope.popup.isVisible = false;
+						
+                        modalWindow.result.then(function (service) {
+						  $scope.isDialogVisible = true;
+                          $scope.popup.isVisible = true;
+
+                          DataService.setToscaService(service);
+    					});
+                } else {
+                    console.log("In new controller window");
+                        let errorMsg;
+						
+                        if($scope.error !== undefined && $scope.error != null) {
+                            errorMsg = $scope.error;
+                        } else {
+                            errorMsg = "";
+                        }
+
+                        const modalWindow = $uibModal.open({
+                            templateUrl: 'app/vid/scripts/modals/unknown-modal/unknown-modal.html',
+                            controller: 'unknownModalController',
+                            controllerAs: 'vm',
+                            resolve: {
+                                errorMsg: function () {
+                                    return errorMsg;
+                                }
+                            }
+                        });
+						
+                        console.log("modalWindow = ",modalWindow);
+                        $scope.isDialogVisible = false;
+                        $scope.popup.isVisible = false;
+						
+                        modalWindow.result.then(function (service) {
+						  $scope.isDialogVisible = true;
+                          $scope.popup.isVisible = true;
+
+                          DataService.setToscaService(service);
+    					});
+                }
+            }
+        }
+        console.log("After closing sdwan param window");
         CreationService.updateUserParameterList(id, $scope.userProvidedControl);
     };
 

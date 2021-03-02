@@ -93,38 +93,9 @@ public class MsoRestClientNew implements MsoInterface {
         logger.debug(EELFLoggerDelegate.debugLogger, methodName + START);
         String path = baseUrl + endpoint;
         
-        String service = null;
-        String inputsUrl = null;
-        String output = null;
-        Boolean generate_workflow = false;
-        Boolean execute_workflow = false;
-        Boolean execute_policy= false;
-		try {
-			JSONObject jsonObject = getCCIConfigJsonObject(methodName);
- 
-			service = (String) jsonObject.get("service");
-			inputsUrl = (String) jsonObject.get("inputsUrl");
-			output = (String) jsonObject.get("output");
-			generate_workflow = (Boolean) jsonObject.get("generate-workflow");
-			execute_workflow = (Boolean) jsonObject.get("execute-workflow");
-			execute_policy = (Boolean) jsonObject.get("execute-policy");			
-			logger.debug(EELFLoggerDelegate.debugLogger, methodName + service);
-			logger.debug(EELFLoggerDelegate.debugLogger, methodName + inputsUrl);
-			logger.debug(EELFLoggerDelegate.debugLogger, methodName + output);
-			logger.debug(EELFLoggerDelegate.debugLogger, methodName + generate_workflow);
-			logger.debug(EELFLoggerDelegate.debugLogger, methodName + execute_workflow);
-			logger.debug(EELFLoggerDelegate.debugLogger, methodName + execute_policy);			
-        } catch (Exception e) {
-            logger.error(EELFLoggerDelegate.errorLogger, "." + methodName + e.toString());
-            logger.debug(EELFLoggerDelegate.debugLogger, "." + methodName + e.toString());
-        }
-        
-        requestDetails.setAdditionalProperty("inputsUrl", inputsUrl);
-        requestDetails.setAdditionalProperty("service", service);
-        requestDetails.setAdditionalProperty("output", output);
-        requestDetails.setAdditionalProperty("generate_workflow", generate_workflow);
-        requestDetails.setAdditionalProperty("execute_workflow", execute_workflow);
-        requestDetails.setAdditionalProperty("execute_policy", execute_policy);        
+        requestDetails.setAdditionalProperty("generate_workflow", false);
+        requestDetails.setAdditionalProperty("execute_workflow", false);
+        requestDetails.setAdditionalProperty("execute_policy", false);        
         return createInstance(requestDetails, path);
     }
     
@@ -146,9 +117,7 @@ public class MsoRestClientNew implements MsoInterface {
         
         Boolean list_steps_only = false;
 		try {
-			JSONObject jsonObject = getCCIConfigJsonObject(methodName);
- 
-			list_steps_only = (Boolean) jsonObject.get("list-steps-only");
+			list_steps_only = false;
 			logger.debug(EELFLoggerDelegate.debugLogger, methodName + list_steps_only);
 		
         } catch (Exception e) {
@@ -603,20 +572,4 @@ public class MsoRestClientNew implements MsoInterface {
         return ImmutableMap.copyOf(map);
     }
     
-    private JSONObject getCCIConfigJsonObject(String methodName) {
-        String cciConfigPath = SystemProperties.getProperty("cci.config.filename");
-        
-        JSONParser parser = new JSONParser();
-        JSONObject jsonObject = new JSONObject();
-		try {
-			Object obj = parser.parse(new FileReader(cciConfigPath));
-			jsonObject = (JSONObject) obj;
-        } catch (Exception e) {
-            logger.error(EELFLoggerDelegate.errorLogger, "." + methodName + e.toString());
-            logger.debug(EELFLoggerDelegate.debugLogger, "." + methodName + e.toString());
-        }
-        
-		return jsonObject;
-    }    
-
 }

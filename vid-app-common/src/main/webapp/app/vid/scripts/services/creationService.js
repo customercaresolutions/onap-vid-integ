@@ -684,6 +684,8 @@ var CreationService = function($log, AaiService, AsdcService, DataService,VIDCON
                 }else{
                     requestDetails.requestParameters.subscriptionServiceType = getValueFromList(
                         FIELD.ID.SERVICE_TYPE, parameterList);
+                    requestDetails.requestParameters.inputParams =  DataService.getInputParams();
+                    requestDetails.requestParameters.service =  DataService.getToscaService();
                 }
                 requestDetails.requestParameters.aLaCarte = DataService.getALaCarte();
                 if ( !DataService.getALaCarte() ) {
