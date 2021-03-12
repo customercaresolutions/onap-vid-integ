@@ -39,6 +39,8 @@
 		  $scope.image_id = "ami-0a0ddd875a1ea2c7f";
 		 $scope.instance_type = "t2.large";
 		 $scope.availability_zone = "us-east-1b";
+		 $scope.ves_collector_ip = "Enter public IP VM where DMAAP is running";
+		 $scope.ves_collector_port = "Enter port of DMAAP";
 		 $scope.lower_threshold = 10;
 		 $scope.upper_threshold = 80;
 		 $scope.packet_rate = 20;
@@ -61,6 +63,9 @@
 				"image_id": $scope.image_id,
 				"instance_type": $scope.instance_type,
 				"availability_zone": $scope.availability_zone,
+				"ves_collector_ip": $scope.ves_collector_ip,
+				"ves_collector_port": $scope.ves_collector_port,
+				"msg_bus_type": "dmaap",
 				"lower_threshold": $scope.lower_threshold,
 				"upper_threshold": $scope.upper_threshold,
 				"packet_rate": $scope.packet_rate,
